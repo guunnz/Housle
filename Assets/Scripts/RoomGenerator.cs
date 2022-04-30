@@ -100,9 +100,10 @@ public class RoomGenerator : MonoBehaviour
                 GameObject obj = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
 
-                if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax < GridSizeZ : x + ColumnLengthMax < GridSizeX))
+                if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax <= GridSizeZ : x + ColumnLengthMax <= GridSizeX))
                 {
-                    ColumnsInZ = Random.Range(0, 2) == 1;
+
+                    Debug.Log(x + " " + z);
                     ColumnsSpawned++;
                     int ColumnSize = Random.Range(ColumnSizeMin, ColumnSizeMax);
                     int ColumnLength = Random.Range(ColumnLengthMin, ColumnLengthMax);
@@ -112,12 +113,14 @@ public class RoomGenerator : MonoBehaviour
                         {
                             for (int s = 1; s < ColumnLength; s++)
                             {
+
                                 GameObject objAux = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
-                                objAux.transform.localPosition = new Vector3(x == 0 ? l : x + s, i, z == 0 ? l : z + s);
+                                objAux.transform.localPosition = new Vector3(!ColumnsInZ ? l : x + s, i, ColumnsInZ ? l : z + s);
                             }
                         }
-                        yield return null;
                     }
+                    yield return null;
+                    ColumnsInZ = Random.Range(0, 2) == 1;
                 }
             }
             for (int x = 0; x < GridSizeX; x++)
@@ -139,9 +142,9 @@ public class RoomGenerator : MonoBehaviour
                 GameObject obj = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
 
-                if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax < GridSizeZ : x + ColumnLengthMax < GridSizeX))
+                if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax <= GridSizeZ : x + ColumnLengthMax <= GridSizeX))
                 {
-                    ColumnsInZ = Random.Range(0, 2) == 1;
+                    Debug.Log(x + " " + z);
                     ColumnsSpawned++;
                     int ColumnSize = Random.Range(ColumnSizeMin, ColumnSizeMax);
                     int ColumnLength = Random.Range(ColumnLengthMin, ColumnLengthMax);
@@ -153,11 +156,12 @@ public class RoomGenerator : MonoBehaviour
                             {
 
                                 GameObject objAux = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
-                                objAux.transform.localPosition = new Vector3(x == 0 ? l : x + s, i, z == 0 ? l : z + s);
+                                objAux.transform.localPosition = new Vector3(!ColumnsInZ ? l : x + s, i, ColumnsInZ ? l : z + s);
                             }
                         }
                     }
                     yield return null;
+                    ColumnsInZ = Random.Range(0, 2) == 1;
                 }
             }
             yield return null;
