@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
-    public GameObject GridPrefab;
+    public GameObject WallPrefab;
+    public GameObject FloorPrefab;
+    public GameObject BedPrefab;
+    public GameObject WardrobePrefab;
     public int GridSizeX;
     public int GridSizeY;
     public int GridSizeZ;
@@ -49,7 +52,7 @@ public class RoomGenerator : MonoBehaviour
 
         List<int> yCanGenerateInXAux = new List<int>();
         List<int> yCanGenerateInZAux = new List<int>(Random.Range(0, GridSizeZ));
-        StartCoroutine(GenerateV2(room.transform));
+        StartCoroutine(Generate(room.transform));
         lastRoom = room.transform;
 
         yield return null;
@@ -57,47 +60,12 @@ public class RoomGenerator : MonoBehaviour
 
     IEnumerator Generate(Transform parent)
     {
-        for (int x = 0; x < GridSizeX; x++)
-        {
-            for (int y = 0; y < GridSizeY; y++)
-            {
-                for (int z = 0; z < GridSizeZ; z++)
-                {
-                    GameObject obj = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
-                    obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
-                    yield return null;
-                    if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax < GridSizeZ : x + ColumnLengthMax < GridSizeX))
-                    {
-                        ColumnsInZ = Random.Range(0, 2) == 1;
-                        ColumnsSpawned++;
-                        int ColumnSize = Random.Range(ColumnSizeMin, ColumnSizeMax);
-                        int ColumnLength = Random.Range(ColumnLengthMin, ColumnLengthMax);
-                        for (int i = 0; i < GridSizeY; i++)
-                        {
-                            for (int l = 1; l < ColumnSize + 1; l++)
-                            {
-                                for (int s = 1; s < ColumnLength; s++)
-                                {
-                                    yield return null;
-                                    GameObject objAux = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
-                                    objAux.transform.localPosition = new Vector3(x == 0 ? l : x + s, i, z == 0 ? l : z + s);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    IEnumerator GenerateV2(Transform parent)
-    {
         for (int z = 0; z < GridSizeZ; z++)
         {
             for (int y = 0; y < GridSizeY; y++)
             {
                 int x = 0;
-                GameObject obj = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
+                GameObject obj = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
 
                 if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax <= GridSizeZ : x + ColumnLengthMax <= GridSizeX))
@@ -114,7 +82,7 @@ public class RoomGenerator : MonoBehaviour
                             for (int s = 1; s < ColumnLength; s++)
                             {
 
-                                GameObject objAux = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
+                                GameObject objAux = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                                 objAux.transform.localPosition = new Vector3(!ColumnsInZ ? l : x + s, i, ColumnsInZ ? l : z + s);
                             }
                         }
@@ -126,7 +94,7 @@ public class RoomGenerator : MonoBehaviour
             for (int x = 0; x < GridSizeX; x++)
             {
                 int y = 0;
-                GameObject obj = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
+                GameObject obj = Instantiate(FloorPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
 
 
@@ -139,7 +107,7 @@ public class RoomGenerator : MonoBehaviour
             for (int y = 0; y < GridSizeY; y++)
             {
                 int z = 0;
-                GameObject obj = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
+                GameObject obj = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
 
                 if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax <= GridSizeZ : x + ColumnLengthMax <= GridSizeX))
@@ -155,7 +123,7 @@ public class RoomGenerator : MonoBehaviour
                             for (int s = 1; s < ColumnLength; s++)
                             {
 
-                                GameObject objAux = Instantiate(GridPrefab, Vector3.zero, Quaternion.identity, parent);
+                                GameObject objAux = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                                 objAux.transform.localPosition = new Vector3(!ColumnsInZ ? l : x + s, i, ColumnsInZ ? l : z + s);
                             }
                         }
@@ -166,5 +134,81 @@ public class RoomGenerator : MonoBehaviour
             }
             yield return null;
         }
+
+        StartCoroutine(SpawnBed(Random.Range(0, 2) == 0));
+        StartCoroutine(SpawnWardrobe(Random.Range(0, 2) == 0));
+    }
+
+    IEnumerator SpawnBed(bool BedInZ = false)
+    {
+        int min = 0;
+        int maxZ = GridSizeZ - 8; //8 is bed width, can be changed after if we have diff types of beds
+        int maxX = GridSizeX; //8 is bed width, can be changed after if we have diff types of beds
+
+        int RandomStartPoint = BedInZ ? Random.Range(min, maxZ) : Random.Range(min, maxX);
+
+        GameObject bed = Instantiate(BedPrefab, new Vector3(!BedInZ ? RandomStartPoint + 0.5f : 0,2, BedInZ ? RandomStartPoint + 0.5f : 0), Quaternion.Euler(0, BedInZ ? 90 : 0, 0), room.transform);
+
+        MovableObject bedComponent = bed.GetComponentInChildren<MovableObject>();
+
+        int count = 0;
+        while (true)
+        {
+            count++;
+            if (bedComponent.InsideSomething)
+            {
+               
+                bed.transform.position = new Vector3(!BedInZ ? Random.Range(min, maxX) +0.5f : 0, 2, BedInZ ? Random.Range(min, maxZ) + 0.5f : 0);
+            }
+
+            if (count > 10)
+            {
+                if (bedComponent.InsideSomething)
+                {
+                    Destroy(bed);
+                    StartCoroutine(SpawnBed(!BedInZ));
+                }
+                break;
+            }
+            yield return new WaitForSeconds(0.02f);
+
+        }
+        yield return null;
+    }
+
+    IEnumerator SpawnWardrobe(bool WardrobeInZ = false)
+    {
+        int min = 0;
+        int maxZ = GridSizeZ - 2;
+        int maxX = GridSizeX - 2;
+
+        int RandomStartPoint = WardrobeInZ ? Random.Range(min, maxZ) : Random.Range(min, maxX);
+
+        GameObject wardRobe = Instantiate(WardrobePrefab, new Vector3(!WardrobeInZ ? RandomStartPoint + 0.5f : 0, 0.5f, WardrobeInZ ? RandomStartPoint + 0.5f : 0), Quaternion.Euler(0, WardrobeInZ ? 90 : 0, 0), room.transform);
+
+        MovableObject wardrobeComponent = wardRobe.GetComponentInChildren<MovableObject>();
+
+        int count = 0;
+        while (true)
+        {
+            count++;
+            if (wardrobeComponent.InsideSomething)
+            {
+                wardRobe.transform.position = new Vector3(!WardrobeInZ ? Random.Range(min, maxX) + 0.5f : 0, 0.5f, WardrobeInZ ? Random.Range(min, maxZ) + 0.5f : 0);
+            }
+
+            if (count > 10)
+            {
+                if (wardrobeComponent.InsideSomething)
+                {
+                    Destroy(wardRobe);
+                    StartCoroutine(SpawnWardrobe(!WardrobeInZ));
+                }
+                break;
+            }
+            yield return new WaitForSeconds(0.02f);
+
+        }
+        yield return null;
     }
 }
