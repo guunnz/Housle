@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3609480481888974209}
   - component: {fileID: 412264954070940196}
   - component: {fileID: 2475958913383354094}
+  - component: {fileID: -2335999656485883463}
+  - component: {fileID: -526530459490709780}
   m_Layer: 0
   m_Name: Computer Chair
   m_TagString: Untagged
@@ -83,3 +85,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2335999656485883463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133358823165587259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295aced6234b8014cb5b2bbbab7ab28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDown: 0
+  DecorationYExtra: 1
+  DecorationXExtra: 1
+  DecorationZExtra: 1
+  Facing: 1
+  WallTile: {fileID: 0}
+  FloorTile: {fileID: 0}
+--- !u!65 &-526530459490709780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133358823165587259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0072661946, y: 0.008487572, z: 0.012246353}
+  m_Center: {x: -0.000076817814, y: 0.00017847096, z: 0.0060416977}

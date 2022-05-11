@@ -12,15 +12,24 @@ public class Decoration : MonoBehaviour
     public Transform WallTile;
     public Transform FloorTile;
 
+    private BoxCollider boxCollider;
+
     private void OnMouseDown()
     {
+        boxCollider.enabled = false;
         MouseDown = true;
+    }
+
+    private void Start()
+    {
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && MouseDown && (WallTile != null || FloorTile != null))
         {
+            boxCollider.enabled = true;
             MouseDown = false;
             WallTile = null;
             FloorTile = null;

@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3382921222768737288}
+  - component: {fileID: -6719919768610631342}
+  - component: {fileID: -7565089676487388188}
   m_Layer: 0
   m_Name: WoodenChestMini
   m_TagString: Untagged
@@ -32,6 +34,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6719919768610631342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258431601742201871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295aced6234b8014cb5b2bbbab7ab28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDown: 0
+  DecorationYExtra: 1
+  DecorationXExtra: 1
+  DecorationZExtra: 1
+  Facing: 1
+  WallTile: {fileID: 0}
+  FloorTile: {fileID: 0}
+--- !u!65 &-7565089676487388188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258431601742201871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4263376703628948213
 GameObject:
   m_ObjectHideFlags: 0

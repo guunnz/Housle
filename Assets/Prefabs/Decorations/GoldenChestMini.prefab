@@ -157,6 +157,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773719897255477794}
+  - component: {fileID: 861136088884044520}
+  - component: {fileID: 7186821256741751446}
   m_Layer: 0
   m_Name: GoldenChestMini
   m_TagString: Untagged
@@ -180,6 +182,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &861136088884044520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057993492909683736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295aced6234b8014cb5b2bbbab7ab28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseDown: 0
+  DecorationYExtra: 1
+  DecorationXExtra: 1
+  DecorationZExtra: 1
+  Facing: 1
+  WallTile: {fileID: 0}
+  FloorTile: {fileID: 0}
+--- !u!65 &7186821256741751446
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057993492909683736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6327313412144837648
 GameObject:
   m_ObjectHideFlags: 0
