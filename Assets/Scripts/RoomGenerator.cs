@@ -67,7 +67,7 @@ public class RoomGenerator : MonoBehaviour
                 int x = 0;
                 GameObject obj = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
-
+                obj.tag = "GridWallLeft";
                 if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax <= GridSizeZ : x + ColumnLengthMax <= GridSizeX))
                 {
 
@@ -84,6 +84,7 @@ public class RoomGenerator : MonoBehaviour
 
                                 GameObject objAux = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                                 objAux.transform.localPosition = new Vector3(!ColumnsInZ ? l : x + s, i, ColumnsInZ ? l : z + s);
+                                objAux.tag = obj.tag;
                             }
                         }
                     }
@@ -96,7 +97,7 @@ public class RoomGenerator : MonoBehaviour
                 int y = 0;
                 GameObject obj = Instantiate(FloorPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
-
+                obj.tag = "GridFloor";
 
             }
             yield return null;
@@ -109,7 +110,7 @@ public class RoomGenerator : MonoBehaviour
                 int z = 0;
                 GameObject obj = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
-
+                obj.tag = "GridWallRight";
                 if ((ColumnsInZ ? Random.Range(0, 1000) <= ChanceOfColumn1in1000Z : Random.Range(0, 1000) <= ChanceOfColumn1in1000X) && (ColumnsInZ ? z == 0 : x == 0) && ColumnsSpawned < ColumnMaxAmount && (x == 0 ? z + ColumnLengthMax <= GridSizeZ : x + ColumnLengthMax <= GridSizeX))
                 {
                     Debug.Log(x + " " + z);
@@ -125,6 +126,7 @@ public class RoomGenerator : MonoBehaviour
 
                                 GameObject objAux = Instantiate(WallPrefab, Vector3.zero, Quaternion.identity, parent);
                                 objAux.transform.localPosition = new Vector3(!ColumnsInZ ? l : x + s, i, ColumnsInZ ? l : z + s);
+                                objAux.tag = obj.tag;
                             }
                         }
                     }
