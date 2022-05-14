@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4949943479205838279}
   - component: {fileID: -5608942644308617307}
   - component: {fileID: -5485038621738354834}
+  - component: {fileID: -4731559003120082585}
   m_Layer: 0
   m_Name: football_ball_FBX
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  DecorationYExtra: 1
+  DecorationYExtra: 1.5
   DecorationXExtra: 1
   DecorationZExtra: 1
   Facing: 1
@@ -114,5 +115,18 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.006863062, y: 0.0068638753, z: 0.006864796}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.006863062, y: 0.0068638753, z: 0.0057087336}
+  m_Center: {x: 0, y: -3.7050243e-18, z: 0.0005780349}
+--- !u!114 &-4731559003120082585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895370769102838802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af8a513bce003141b88ed6ae8563f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsideSomething: 0

@@ -26,9 +26,14 @@ public class RoomGenerator : MonoBehaviour
     public int ColumnSizeMin = 1;
     public bool ColumnsInZ;
 
+    internal bool finishedGeneratingBed;
+    internal bool finishedGeneratingWardRobe;
+
     public void GenerateRoom()
     {
-        ColumnsSpawned = 0;
+        finishedGeneratingWardRobe = false;
+        finishedGeneratingBed = false;
+           ColumnsSpawned = 0;
         ColumnsInZ = Random.Range(0, 2) == 1;
         if (room != null)
         {
@@ -98,7 +103,6 @@ public class RoomGenerator : MonoBehaviour
                 GameObject obj = Instantiate(FloorPrefab, Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = new Vector3(x, yCanGenerateInX.Contains(x) ? y : yCanGenerateInZ.Contains(z) || yCanGenerateInX.Count == 0 && yCanGenerateInZ.Count == 0 ? y : 0, z);
                 obj.tag = "GridFloor";
-
             }
             yield return null;
         }
@@ -137,8 +141,8 @@ public class RoomGenerator : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(SpawnBed(Random.Range(0, 2) == 0));
-        StartCoroutine(SpawnWardrobe(Random.Range(0, 2) == 0));
+        yield return StartCoroutine(SpawnBed(Random.Range(0, 2) == 0));
+        yield return StartCoroutine(SpawnWardrobe(Random.Range(0, 2) == 0));
     }
 
     IEnumerator SpawnBed(bool BedInZ = false)
@@ -149,7 +153,7 @@ public class RoomGenerator : MonoBehaviour
 
         int RandomStartPoint = BedInZ ? Random.Range(min, maxZ) : Random.Range(min, maxX);
 
-        GameObject bed = Instantiate(BedPrefab, new Vector3(!BedInZ ? RandomStartPoint + 0.5f : 0,2, BedInZ ? RandomStartPoint + 0.5f : 0), Quaternion.Euler(0, BedInZ ? 90 : 0, 0), room.transform);
+        GameObject bed = Instantiate(BedPrefab, new Vector3(!BedInZ ? RandomStartPoint + 0.5f : 0, 2, BedInZ ? RandomStartPoint + 0.5f : 0), Quaternion.Euler(0, BedInZ ? 90 : 0, 0), room.transform);
 
         MovableObject bedComponent = bed.GetComponentInChildren<MovableObject>();
 
@@ -159,16 +163,19 @@ public class RoomGenerator : MonoBehaviour
             count++;
             if (bedComponent.InsideSomething)
             {
-               
-                bed.transform.position = new Vector3(!BedInZ ? Random.Range(min, maxX) +0.5f : 0, 2, BedInZ ? Random.Range(min, maxZ) + 0.5f : 0);
-            }
 
+                bed.transform.position = new Vector3(!BedInZ ? Random.Range(min, maxX) + 0.5f : 0, 2, BedInZ ? Random.Range(min, maxZ) + 0.5f : 0);
+            }
             if (count > 10)
             {
                 if (bedComponent.InsideSomething)
                 {
                     Destroy(bed);
                     StartCoroutine(SpawnBed(!BedInZ));
+                }
+                else
+                {
+                    finishedGeneratingBed = true;
                 }
                 break;
             }
@@ -198,6 +205,7 @@ public class RoomGenerator : MonoBehaviour
             {
                 wardRobe.transform.position = new Vector3(!WardrobeInZ ? Random.Range(min, maxX) + 0.5f : 0, 0.5f, WardrobeInZ ? Random.Range(min, maxZ) + 0.5f : 0);
             }
+            
 
             if (count > 10)
             {
@@ -206,11 +214,17 @@ public class RoomGenerator : MonoBehaviour
                     Destroy(wardRobe);
                     StartCoroutine(SpawnWardrobe(!WardrobeInZ));
                 }
+                else
+                {
+                    finishedGeneratingWardRobe = true;
+                }
                 break;
             }
             yield return new WaitForSeconds(0.02f);
 
         }
+
         yield return null;
+
     }
 }

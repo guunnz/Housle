@@ -528,7 +528,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6039380727872341592}
   - component: {fileID: 3095073412477947112}
-  - component: {fileID: 7163398781170825244}
+  - component: {fileID: -9155586502973380850}
+  - component: {fileID: 683366606851570141}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -568,13 +569,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  DecorationYExtra: 1
+  DecorationYExtra: 0.875
   DecorationXExtra: 1
   DecorationZExtra: 1
   Facing: 1
   WallTile: {fileID: 0}
   FloorTile: {fileID: 0}
---- !u!65 &7163398781170825244
+--- !u!114 &-9155586502973380850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384943645796834530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af8a513bce003141b88ed6ae8563f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsideSomething: 0
+--- !u!65 &683366606851570141
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -585,5 +599,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 8.782422, y: 10.7060585, z: 20}
+  m_Center: {x: -0.0021077995, y: 1.8535166, z: 8.6387004e-18}

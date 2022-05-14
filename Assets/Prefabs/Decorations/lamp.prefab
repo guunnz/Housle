@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 5659502906859809274}
   - component: {fileID: 1068108531884275785}
   - component: {fileID: -3298087733138452435}
+  - component: {fileID: -7343267831893361736}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Untagged
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  DecorationYExtra: 1
+  DecorationYExtra: 0.5
   DecorationXExtra: 1
   DecorationZExtra: 1
   Facing: 1
@@ -226,8 +227,21 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5026377016675087168}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.270584, y: 8.712578, z: 3.797287}
+  m_Center: {x: -0.05911255, y: 5.320076, z: 0.18524933}
+--- !u!114 &-7343267831893361736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5026377016675087168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af8a513bce003141b88ed6ae8563f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsideSomething: 0

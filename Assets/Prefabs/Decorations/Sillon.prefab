@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5038749610107393398}
   - component: {fileID: 1177650891918636839}
   - component: {fileID: -2139143666211268164}
+  - component: {fileID: -2737005566479744}
   m_Layer: 0
   m_Name: Sillon
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6648164072023449505}
   m_LocalRotation: {x: 6.528643e-17, y: 0.9976469, z: -6.528643e-17, w: 0.06856135}
-  m_LocalPosition: {x: 15.83, y: 2.44, z: 23.98}
+  m_LocalPosition: {x: 15.83, y: 2.4, z: 23.98}
   m_LocalScale: {x: 500, y: 500, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,5 +114,18 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.010000003, y: 0.0094259875, z: 0.011332343}
-  m_Center: {x: -1.2283057e-12, y: 0.0009782762, z: -0.00008243022}
+  m_Size: {x: 0.009999992, y: 0.008274899, z: 0.011332328}
+  m_Center: {x: -3.5552358e-13, y: 0.0015538235, z: -0.000082430364}
+--- !u!114 &-2737005566479744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648164072023449505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af8a513bce003141b88ed6ae8563f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsideSomething: 0

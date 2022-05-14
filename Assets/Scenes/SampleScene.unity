@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 690670093}
   - component: {fileID: 690670092}
   - component: {fileID: 690670094}
+  - component: {fileID: 690670095}
   m_Layer: 0
   m_Name: RoomGenerator
   m_TagString: Untagged
@@ -157,9 +158,9 @@ MonoBehaviour:
   FloorPrefab: {fileID: 7959092462156325529, guid: cf2617bc9d011084aafa22eb6e9ffc09, type: 3}
   BedPrefab: {fileID: 5673825175968834104, guid: 884eed96bc743684384b7b7eddbac247, type: 3}
   WardrobePrefab: {fileID: 2241277370153389448, guid: 628cf25b0c22f76499269a68880ec0e2, type: 3}
-  GridSizeX: 30
+  GridSizeX: 32
   GridSizeY: 20
-  GridSizeZ: 30
+  GridSizeZ: 32
   yCanGenerateInX: 00000000
   yCanGenerateInZ: 00000000
   ChanceOfColumn1in1000X: 5
@@ -206,6 +207,39 @@ MonoBehaviour:
   MinLength: 0
   WindowsAmountMin: 1
   WindowsAmountMax: 3
+--- !u!114 &690670095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690670091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead4ffbfbedede048bc67b2cad8faf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decorationList:
+  - {fileID: 3105138349806506631, guid: 2dca5474374950e48a87a3629c1ec849, type: 3}
+  - {fileID: 9130937477838335754, guid: aefc2b1a89760a4478fd5717608568fc, type: 3}
+  - {fileID: 4133358823165587259, guid: b517ee569919d694d878d7531a05231f, type: 3}
+  - {fileID: 6895370769102838802, guid: 1276ebd3465987f48a5546da0e41cbdf, type: 3}
+  - {fileID: 5112617593458413099, guid: 93ff038c88e164c45adb7b19037ff3fa, type: 3}
+  - {fileID: 305237985168670416, guid: cb9231f887a18bd409cb34bb16479e22, type: 3}
+  - {fileID: 5057993492909683736, guid: 25412dcf60ebf8c4dac2b4f032586930, type: 3}
+  - {fileID: 6384943645796834530, guid: be7134b0cda4fe34da69e8c6a57d1bf4, type: 3}
+  - {fileID: 5026377016675087168, guid: 69c236fccff0e6f4298bde1c235bc77f, type: 3}
+  - {fileID: 7467218749790693091, guid: bf1a99d1f6273bf4cb041e1897c1e52d, type: 3}
+  - {fileID: 4764651598720381299, guid: a3d7068a419e96f46879556ba0cff817, type: 3}
+  - {fileID: 6648164072023449505, guid: 60e874799e913a541beb650976d8c9f9, type: 3}
+  - {fileID: 426604020068489762, guid: 37bc38f9c28700345a3da3c7d2cf70c2, type: 3}
+  - {fileID: 7422104450463108420, guid: 8d6d26cf8e86aa74a938736be8a740e4, type: 3}
+  - {fileID: 5758853899315734972, guid: e9e7b55f740945842b1110e78c7b9f9e, type: 3}
+  - {fileID: 4186799502996023433, guid: 1b2b000161a68cc4cb0889de10de823c, type: 3}
+  - {fileID: 4258431601742201871, guid: 958b730a7d717bf41ae87d2868883430, type: 3}
+  decorationSpawnedList: []
+  roomGenerator: {fileID: 690670092}
+  DecorationAmount: 8
 --- !u!1 &1339718866
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +813,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 690670092}
@@ -786,5 +828,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 690670094}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 690670095}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Generate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DecorationManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994907973326421116, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1454ede7b89a1474eaca76994db919eb, type: 3}

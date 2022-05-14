@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 7848423191291198553}
   - component: {fileID: -5676522764288048768}
   - component: {fileID: -300961557603458152}
+  - component: {fileID: 624216546021039553}
   m_Layer: 0
   m_Name: Monitor
   m_TagString: Untagged
@@ -189,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7467218749790693091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6384580199314646844}
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  DecorationYExtra: 1
+  DecorationYExtra: 0.7
   DecorationXExtra: 1
   DecorationZExtra: 1
   Facing: 1
@@ -228,8 +229,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.0590074, y: 2.2809749, z: 1}
+  m_Center: {x: 0.021005988, y: 1.1524148, z: 0}
+--- !u!114 &624216546021039553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467218749790693091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af8a513bce003141b88ed6ae8563f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsideSomething: 0
 --- !u!1 &8435542079453349576
 GameObject:
   m_ObjectHideFlags: 0

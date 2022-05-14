@@ -9,7 +9,7 @@ public class MovableObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other)
+        if (!other.CompareTag("GridFloor"))
         {
             InsideSomething = true;
         }

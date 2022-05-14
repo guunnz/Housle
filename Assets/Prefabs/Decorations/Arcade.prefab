@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 604477571177220978}
   - component: {fileID: 5618855194506052817}
   - component: {fileID: 5084175091574925344}
+  - component: {fileID: -4900434487553163357}
   m_Layer: 0
   m_Name: Arcade
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  DecorationYExtra: 1
+  DecorationYExtra: 5
   DecorationXExtra: 1
   DecorationZExtra: 1
   Facing: 1
@@ -119,5 +120,18 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009147324, y: 0.01, z: 0.13223086}
-  m_Center: {x: -0.0023059805, y: 0, z: 0.061115433}
+  m_Size: {x: 0.009147324, y: 0.008975197, z: 0.13223086}
+  m_Center: {x: -0.0023059805, y: 0.00051240704, z: 0.06111544}
+--- !u!114 &-4900434487553163357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105138349806506631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af8a513bce003141b88ed6ae8563f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InsideSomething: 0
